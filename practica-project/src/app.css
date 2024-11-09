@@ -1,0 +1,31 @@
+article {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.8rem;
+  justify-content: space-between;
+}
+article header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+article header div {
+  display: flex;
+  flex-direction: column;
+}
+article head span {
+  opacity: 0.6;
+}
+
+article button {
+  margin-left: 16px;
+}
+
+.tw-followCard-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
