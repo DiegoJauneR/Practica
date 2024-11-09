@@ -6,6 +6,10 @@ import { useEffect } from "react";
 
 function ListaComponentes() {
   const [semestres, setSemestres] = useState({});
+  const [selectedSubject, setSelectedSubject] = useState(null);
+  const [prevSubjects, setPrevSubjects] = useState([]);
+  const [nextSubjects, setNextSubjects] = useState([]);
+
   useEffect(() => {
     const groupedSubjects = {};
     subjects.forEach((subject) => {
@@ -18,9 +22,15 @@ function ListaComponentes() {
     setSemestres(groupedSubjects);
   }, []);
 
-  const colores = (asignatura) => {
-    const prev = subjects.find((subject) => subject.name === asignatura);
-    return prev;
+  const handleButtonClick = (subject) => {
+    setSelectedSubject(subject);
+
+    const subjectData = subjects.find((subj) => subj.name === subject);
+    const prev = subjectData.prev || [];
+    const next = subjectData.next || [];
+
+    setPrevSubjects(prev);
+    setNextSubjects(next);
   };
 
   return (
@@ -32,9 +42,16 @@ function ListaComponentes() {
           {semestres[semester].map((subject, index) => (
             <button
               key={index}
-              onClick={() => {
-                console.log(colores(subject));
-              }}
+              onClick={() => handleButtonClick(subject)}
+              className={
+                selectedSubject === subject
+                  ? "selected"
+                  : prevSubjects.includes(subject)
+                  ? "prev"
+                  : nextSubjects.includes(subject)
+                  ? "next"
+                  : ""
+              }
             >
               {subject}
             </button>
