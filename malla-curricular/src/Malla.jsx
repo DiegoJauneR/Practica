@@ -34,8 +34,7 @@ function ListaComponentes() {
   };
 
   return (
-    <div>
-      <h2>Lista de Semestres</h2>
+    <div className="cotainermalla">
       {Object.keys(semestres).map((semester) => (
         <div key={semester}>
           <h2>Semestre {semester}</h2>

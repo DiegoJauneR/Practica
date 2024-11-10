@@ -14,6 +14,8 @@ button {
   font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
+  width: 240px;
+  height: 53px;
 }
 
 .selected {
@@ -29,4 +31,15 @@ button {
 .next {
   background-color: #1e90ff;
   color: white;
+}
+
+.cotainermalla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-column-gap: 10px;
+  grid-row-gap: 25px;
+  margin: 50px auto;
+  justify-content: center;
+  text-align: center;
+  width: 95%;
 }
